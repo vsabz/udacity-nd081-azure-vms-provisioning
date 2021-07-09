@@ -84,6 +84,7 @@ def authorized():
     if "error" in request.args:  # Authentication/Authorization failure
         return render_template("auth_error.html", result=request.args)
     if request.args.get('code'):
+        app.logger.info("Got code from MSAL")
         cache = _load_cache()
         result = _build_msal_app(cache=cache).acquire_token_by_authorization_code(
             equest.args['code'],
