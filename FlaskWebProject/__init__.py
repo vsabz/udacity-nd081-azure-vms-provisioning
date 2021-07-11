@@ -13,7 +13,7 @@ app.config.from_object(Config)
 
 app.logger.setLevel(logging.INFO)
 streamHandler = logging.StreamHandler()
-streamHandler.setLevel(logging.WARNING)
+streamHandler.setLevel(logging.INFO)
 app.logger.addHandler(streamHandler)
 
 Session(app)
